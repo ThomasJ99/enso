@@ -10,7 +10,9 @@ export const metadata = {
   description: "Browse 1500+ exercises with animated demonstrations.",
 };
 
-export default async function ExercisesPage(props: PageProps<"/exercises">) {
+export default async function ExercisesPage(props: {
+  searchParams: Promise<{ bodyPart?: string; page?: string }>;
+}) {
   const searchParams = await props.searchParams;
   const bodyPart =
     typeof searchParams.bodyPart === "string"
